@@ -170,10 +170,7 @@ class UndiscordCore {
         log.verb(`Skipped ${this.state._skippedMessages.length} out of ${this.state._seachResponse.messages.length} in this page.`, `(Offset was ${oldOffset}, ajusted to ${this.state.offset})`);
       }
       else {
-        log.verb('Ended because API returned an empty page.');
-        log.verb('[End state]', this.state);
-        if (isJob) break; // break without stopping if this is part of a job
-        this.state.running = false;
+        log.verb('Skipped empty page.');
       }
 
       // wait before next page (fix search page not updating fast enough)
